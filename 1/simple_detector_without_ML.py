@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
 def get_intervals(df, col='anomaly'):
     mask = df[col] == 1
     grp = (mask != mask.shift()).cumsum()
@@ -59,9 +58,7 @@ def main():
     df['anomaly_cons'] = df.apply(detect_conservative, axis=1)
 
     print('WITH ANOMALY (5)')
-    print(df[['timestamp', 'temperature', 'voltage', 'current',
-              'angular_velocity', 'mode',
-              'anomaly_sens', 'anomaly_cons']].head())
+    print(df.head())
     print()
 
     intervals_sens = get_intervals(df, 'anomaly_sens')
