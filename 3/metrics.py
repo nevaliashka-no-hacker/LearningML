@@ -2,6 +2,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_absolute_percentage_error
 
 def main():
     print("METRICS\n")
@@ -61,6 +64,21 @@ def main():
     print("----|------|----------|------")
     for i in range(10):
         print(f" {data["#"][i]:2} | {data["fact"][i]:4} | {data["forecast"][i]:8} | {data["error"][i]:5}")
+    print()
+
+    y_pred = data["forecast"]
+    y_true = data["fact"] 
+
+    MES_value = mean_squared_error(y_true, y_pred)
+    print(f"Program MES: {f1}\nOn paper: 4.1")
+    print()
+
+    MAE_value = mean_absolute_error(y_true, y_pred)
+    print(f"Program MAS: {f1}\nOn paper: 1.9")
+    print()
+
+    MAPE_value = mean_absolute_percentage_error(y_true, y_pred)
+    print(f"Program MAPE: {f1}%\nOn paper: 3%")
     print()
     
 
