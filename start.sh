@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python3 -m venv/venv
+python3 -m venv venv
 source venv/bin/activate
 
 pip install numpy pandas scikit-learn matplotlib
